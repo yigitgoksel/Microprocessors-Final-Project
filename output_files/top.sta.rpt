@@ -1,0 +1,1668 @@
+TimeQuest Timing Analyzer report for top
+Fri Jan 27 00:32:02 2023
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clk'
+ 13. Slow 1200mV 85C Model Hold: 'clk'
+ 14. Slow 1200mV 85C Model Minimum Pulse Width: 'clk'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Slow 1200mV 85C Model Metastability Report
+ 20. Slow 1200mV 0C Model Fmax Summary
+ 21. Slow 1200mV 0C Model Setup Summary
+ 22. Slow 1200mV 0C Model Hold Summary
+ 23. Slow 1200mV 0C Model Recovery Summary
+ 24. Slow 1200mV 0C Model Removal Summary
+ 25. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 26. Slow 1200mV 0C Model Setup: 'clk'
+ 27. Slow 1200mV 0C Model Hold: 'clk'
+ 28. Slow 1200mV 0C Model Minimum Pulse Width: 'clk'
+ 29. Setup Times
+ 30. Hold Times
+ 31. Clock to Output Times
+ 32. Minimum Clock to Output Times
+ 33. Slow 1200mV 0C Model Metastability Report
+ 34. Fast 1200mV 0C Model Setup Summary
+ 35. Fast 1200mV 0C Model Hold Summary
+ 36. Fast 1200mV 0C Model Recovery Summary
+ 37. Fast 1200mV 0C Model Removal Summary
+ 38. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 39. Fast 1200mV 0C Model Setup: 'clk'
+ 40. Fast 1200mV 0C Model Hold: 'clk'
+ 41. Fast 1200mV 0C Model Minimum Pulse Width: 'clk'
+ 42. Setup Times
+ 43. Hold Times
+ 44. Clock to Output Times
+ 45. Minimum Clock to Output Times
+ 46. Fast 1200mV 0C Model Metastability Report
+ 47. Multicorner Timing Analysis Summary
+ 48. Setup Times
+ 49. Hold Times
+ 50. Clock to Output Times
+ 51. Minimum Clock to Output Times
+ 52. Board Trace Model Assignments
+ 53. Input Transition Times
+ 54. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 55. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 56. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 57. Setup Transfers
+ 58. Hold Transfers
+ 59. Report TCCS
+ 60. Report RSKM
+ 61. Unconstrained Paths
+ 62. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name      ; top                                                ;
+; Device Family      ; Cyclone IV E                                       ;
+; Device Name        ; EP4CE22F17C6                                       ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Combined                                           ;
+; Rise/Fall Delays   ; Enabled                                            ;
++--------------------+----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ; < 0.1%      ;
+;     Processors 7-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary              ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 94.22 MHz ; 94.22 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; clk   ; -9.614 ; -16378.724         ;
++-------+--------+--------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.347 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; clk   ; -3.000 ; -2290.000                        ;
++-------+--------+----------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                                ;
++--------+-------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+; -9.614 ; bird:bird|ir[3]         ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.531     ;
+; -9.612 ; bird:bird|ir[3]         ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.529     ;
+; -9.570 ; bird:bird|ir[3]         ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.487     ;
+; -9.567 ; bird:bird|ir[3]         ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.484     ;
+; -9.459 ; bird:bird|state[2]      ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.367     ;
+; -9.456 ; bird:bird|state[2]      ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.364     ;
+; -9.407 ; bird:bird|ir[4]         ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.324     ;
+; -9.407 ; bird:bird|ir[4]         ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.324     ;
+; -9.406 ; bird:bird|state[0]      ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.314     ;
+; -9.403 ; bird:bird|state[0]      ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.311     ;
+; -9.397 ; bird:bird|state[2]      ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.305     ;
+; -9.395 ; bird:bird|state[2]      ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.303     ;
+; -9.374 ; bird:bird|ir[3]         ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.291     ;
+; -9.362 ; bird:bird|regbank[0][3] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.447     ; 9.910      ;
+; -9.360 ; bird:bird|regbank[0][3] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.447     ; 9.908      ;
+; -9.358 ; bird:bird|ir[3]         ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.275     ;
+; -9.348 ; bird:bird|ir[4]         ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.265     ;
+; -9.345 ; bird:bird|ir[4]         ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.262     ;
+; -9.341 ; bird:bird|ir[3]         ; bird:bird|regbank[1][8]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.258     ;
+; -9.307 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.240     ;
+; -9.305 ; bird:bird|state[3]      ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.213     ;
+; -9.304 ; bird:bird|regbank[1][0] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.237     ;
+; -9.303 ; bird:bird|state[3]      ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.211     ;
+; -9.299 ; bird:bird|state[3]      ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.207     ;
+; -9.296 ; bird:bird|state[3]      ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.204     ;
+; -9.295 ; bird:bird|regbank[4][2] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.447     ; 9.843      ;
+; -9.293 ; bird:bird|regbank[4][2] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.447     ; 9.841      ;
+; -9.291 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.224     ;
+; -9.286 ; bird:bird|regbank[1][4] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.219     ;
+; -9.284 ; bird:bird|regbank[1][4] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.217     ;
+; -9.281 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.214     ;
+; -9.280 ; bird:bird|ir[3]         ; bird:bird|regbank[4][6]  ; clk          ; clk         ; 1.000        ; 0.291      ; 10.566     ;
+; -9.271 ; bird:bird|state[0]      ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.179     ;
+; -9.269 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.202     ;
+; -9.269 ; bird:bird|state[0]      ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.177     ;
+; -9.266 ; bird:bird|regbank[6][1] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.199     ;
+; -9.265 ; bird:bird|state[2]      ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.173     ;
+; -9.257 ; bird:bird|state[1]      ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.165     ;
+; -9.255 ; bird:bird|state[1]      ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.163     ;
+; -9.252 ; bird:bird|ir[3]         ; bird:bird|regbank[5][6]  ; clk          ; clk         ; 1.000        ; 0.319      ; 10.566     ;
+; -9.245 ; bird:bird|ir[3]         ; bird:bird|regbank[6][0]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.162     ;
+; -9.244 ; bird:bird|ir[3]         ; bird:bird|regbank[1][0]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.161     ;
+; -9.242 ; bird:bird|regbank[1][4] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.175     ;
+; -9.242 ; bird:bird|regbank[0][2] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.447     ; 9.790      ;
+; -9.241 ; bird:bird|ir[3]         ; bird:bird|pc[0]          ; clk          ; clk         ; 1.000        ; -0.062     ; 10.174     ;
+; -9.240 ; bird:bird|regbank[0][2] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.447     ; 9.788      ;
+; -9.239 ; bird:bird|regbank[1][4] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.172     ;
+; -9.222 ; bird:bird|regbank[1][3] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.155     ;
+; -9.222 ; bird:bird|state[2]      ; bird:bird|regbank[1][3]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.130     ;
+; -9.221 ; bird:bird|state[2]      ; bird:bird|regbank[6][3]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.129     ;
+; -9.221 ; bird:bird|state[2]      ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.129     ;
+; -9.220 ; bird:bird|regbank[1][3] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.153     ;
+; -9.216 ; bird:bird|state[2]      ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.124     ;
+; -9.212 ; bird:bird|state[0]      ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.120     ;
+; -9.212 ; bird:bird|ir[4]         ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.129     ;
+; -9.210 ; bird:bird|ir[3]         ; bird:bird|regbank[1][9]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.127     ;
+; -9.203 ; bird:bird|ir[3]         ; bird:bird|regbank[1][5]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.120     ;
+; -9.202 ; bird:bird|ir[4]         ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.119     ;
+; -9.169 ; bird:bird|state[0]      ; bird:bird|regbank[1][3]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.077     ;
+; -9.168 ; bird:bird|state[0]      ; bird:bird|regbank[6][3]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.076     ;
+; -9.168 ; bird:bird|state[0]      ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.076     ;
+; -9.163 ; bird:bird|state[0]      ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.087     ; 10.071     ;
+; -9.161 ; bird:bird|regbank[4][0] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.432     ; 9.724      ;
+; -9.160 ; bird:bird|ir[3]         ; bird:bird|regbank[0][2]  ; clk          ; clk         ; 1.000        ; 0.291      ; 10.446     ;
+; -9.158 ; bird:bird|regbank[4][0] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.432     ; 9.721      ;
+; -9.148 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][8]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.081     ;
+; -9.148 ; bird:bird|regbank[1][2] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.081     ;
+; -9.146 ; bird:bird|regbank[1][2] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.079     ;
+; -9.132 ; bird:bird|ir[3]         ; bird:bird|regbank[2][2]  ; clk          ; clk         ; 1.000        ; 0.319      ; 10.446     ;
+; -9.130 ; bird:bird|regbank[0][3] ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.447     ; 9.678      ;
+; -9.129 ; bird:bird|regbank[0][3] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.447     ; 9.677      ;
+; -9.129 ; bird:bird|ir[4]         ; bird:bird|regbank[1][8]  ; clk          ; clk         ; 1.000        ; -0.078     ; 10.046     ;
+; -9.126 ; bird:bird|regbank[0][3] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.447     ; 9.674      ;
+; -9.113 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.062     ; 10.046     ;
+; -9.105 ; bird:bird|state[3]      ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.087     ; 10.013     ;
+; -9.091 ; bird:bird|ir[3]         ; bird:bird|regbank[4][2]  ; clk          ; clk         ; 1.000        ; 0.291      ; 10.377     ;
+; -9.082 ; bird:bird|ir[3]         ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.078     ; 9.999      ;
+; -9.079 ; bird:bird|regbank[6][3] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.012     ;
+; -9.077 ; bird:bird|regbank[6][3] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.010     ;
+; -9.075 ; bird:bird|ir[4]         ; bird:bird|regbank[6][0]  ; clk          ; clk         ; 1.000        ; -0.078     ; 9.992      ;
+; -9.074 ; bird:bird|ir[4]         ; bird:bird|regbank[1][0]  ; clk          ; clk         ; 1.000        ; -0.078     ; 9.991      ;
+; -9.072 ; bird:bird|regbank[6][0] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.005     ;
+; -9.071 ; bird:bird|ir[4]         ; bird:bird|regbank[4][6]  ; clk          ; clk         ; 1.000        ; 0.291      ; 10.357     ;
+; -9.070 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][3]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.003     ;
+; -9.069 ; bird:bird|regbank[1][0] ; bird:bird|regbank[6][3]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.002     ;
+; -9.069 ; bird:bird|regbank[6][0] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.002     ;
+; -9.069 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.062     ; 10.002     ;
+; -9.067 ; bird:bird|ir[3]         ; bird:bird|regbank[5][2]  ; clk          ; clk         ; 1.000        ; 0.319      ; 10.381     ;
+; -9.064 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.062     ; 9.997      ;
+; -9.063 ; bird:bird|state[2]      ; bird:bird|regbank[6][11] ; clk          ; clk         ; 1.000        ; -0.087     ; 9.971      ;
+; -9.063 ; bird:bird|state[2]      ; bird:bird|regbank[4][6]  ; clk          ; clk         ; 1.000        ; 0.282      ; 10.340     ;
+; -9.062 ; bird:bird|state[3]      ; bird:bird|regbank[1][3]  ; clk          ; clk         ; 1.000        ; -0.087     ; 9.970      ;
+; -9.061 ; bird:bird|state[3]      ; bird:bird|regbank[6][3]  ; clk          ; clk         ; 1.000        ; -0.087     ; 9.969      ;
+; -9.061 ; bird:bird|state[3]      ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.087     ; 9.969      ;
+; -9.060 ; bird:bird|state[1]      ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.087     ; 9.968      ;
+; -9.057 ; bird:bird|state[1]      ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.087     ; 9.965      ;
+; -9.056 ; bird:bird|regbank[6][2] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 9.989      ;
+; -9.056 ; bird:bird|state[3]      ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.087     ; 9.964      ;
+; -9.055 ; bird:bird|ir[4]         ; bird:bird|pc[0]          ; clk          ; clk         ; 1.000        ; -0.062     ; 9.988      ;
+; -9.054 ; bird:bird|regbank[6][2] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 9.987      ;
++--------+-------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                                             ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.347 ; vga_sync:vga|pixel_tick        ; vga_sync:vga|pixel_tick        ; clk          ; clk         ; 0.000        ; 0.076      ; 0.580      ;
+; 0.357 ; bird:bird|state[2]             ; bird:bird|state[2]             ; clk          ; clk         ; 0.000        ; 0.063      ; 0.577      ;
+; 0.358 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|state.READ   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.577      ;
+; 0.358 ; keyboard:keyboard|count[1]     ; keyboard:keyboard|count[1]     ; clk          ; clk         ; 0.000        ; 0.062      ; 0.577      ;
+; 0.358 ; keyboard:keyboard|count[2]     ; keyboard:keyboard|count[2]     ; clk          ; clk         ; 0.000        ; 0.062      ; 0.577      ;
+; 0.358 ; keyboard:keyboard|count[0]     ; keyboard:keyboard|count[0]     ; clk          ; clk         ; 0.000        ; 0.062      ; 0.577      ;
+; 0.358 ; keyboard:keyboard|count[3]     ; keyboard:keyboard|count[3]     ; clk          ; clk         ; 0.000        ; 0.062      ; 0.577      ;
+; 0.358 ; keyboard:keyboard|state.IDLE   ; keyboard:keyboard|state.IDLE   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.577      ;
+; 0.358 ; keyboard:keyboard|status       ; keyboard:keyboard|status       ; clk          ; clk         ; 0.000        ; 0.062      ; 0.577      ;
+; 0.359 ; keyboard:keyboard|char[10]     ; keyboard:keyboard|char[9]      ; clk          ; clk         ; 0.000        ; 0.076      ; 0.592      ;
+; 0.360 ; keyboard:keyboard|char[3]      ; keyboard:keyboard|char[2]      ; clk          ; clk         ; 0.000        ; 0.076      ; 0.593      ;
+; 0.389 ; keyboard:keyboard|filter[6]    ; keyboard:keyboard|filter[5]    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.608      ;
+; 0.389 ; keyboard:keyboard|filter[7]    ; keyboard:keyboard|filter[6]    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.608      ;
+; 0.391 ; keyboard:keyboard|filter[4]    ; keyboard:keyboard|filter[3]    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.610      ;
+; 0.497 ; bird:bird|pc[2]                ; bird:bird|pc[3]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.079      ;
+; 0.505 ; keyboard:keyboard|char[9]      ; keyboard:keyboard|char[8]      ; clk          ; clk         ; 0.000        ; 0.076      ; 0.738      ;
+; 0.509 ; keyboard:keyboard|char[7]      ; keyboard:keyboard|char[6]      ; clk          ; clk         ; 0.000        ; 0.076      ; 0.742      ;
+; 0.514 ; bird:bird|pc[0]                ; bird:bird|pc[1]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.096      ;
+; 0.515 ; bird:bird|pc[6]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.097      ;
+; 0.517 ; bird:bird|pc[6]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.099      ;
+; 0.521 ; keyboard:keyboard|char[6]      ; keyboard:keyboard|char[5]      ; clk          ; clk         ; 0.000        ; 0.076      ; 0.754      ;
+; 0.524 ; keyboard:keyboard|char[2]      ; keyboard:keyboard|char[1]      ; clk          ; clk         ; 0.000        ; 0.076      ; 0.757      ;
+; 0.524 ; keyboard:keyboard|char[4]      ; keyboard:keyboard|char[3]      ; clk          ; clk         ; 0.000        ; 0.076      ; 0.757      ;
+; 0.531 ; keyboard:keyboard|filter[3]    ; keyboard:keyboard|filter[2]    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.750      ;
+; 0.532 ; keyboard:keyboard|state.END    ; keyboard:keyboard|rx_done_tick ; clk          ; clk         ; 0.000        ; 0.062      ; 0.751      ;
+; 0.533 ; keyboard:keyboard|filter[1]    ; keyboard:keyboard|filter[0]    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.752      ;
+; 0.533 ; keyboard:keyboard|filter[2]    ; keyboard:keyboard|filter[1]    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.752      ;
+; 0.533 ; keyboard:keyboard|filter[5]    ; keyboard:keyboard|filter[4]    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.752      ;
+; 0.537 ; keyboard:keyboard|c[1]         ; keyboard:keyboard|c[0]         ; clk          ; clk         ; 0.000        ; 0.062      ; 0.756      ;
+; 0.554 ; keyboard:keyboard|rx_done_tick ; keyboard:keyboard|status       ; clk          ; clk         ; 0.000        ; 0.062      ; 0.773      ;
+; 0.555 ; bird:bird|pc[3]                ; bird:bird|pc[3]                ; clk          ; clk         ; 0.000        ; 0.077      ; 0.789      ;
+; 0.557 ; bird:bird|pc[1]                ; bird:bird|pc[1]                ; clk          ; clk         ; 0.000        ; 0.077      ; 0.791      ;
+; 0.558 ; bird:bird|pc[10]               ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.077      ; 0.792      ;
+; 0.558 ; bird:bird|pc[11]               ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.077      ; 0.792      ;
+; 0.558 ; bird:bird|pc[8]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.077      ; 0.792      ;
+; 0.569 ; vga_sync:vga|v_count[7]        ; vga_sync:vga|v_count[7]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.788      ;
+; 0.571 ; bird:bird|pc[5]                ; bird:bird|pc[5]                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.790      ;
+; 0.571 ; bird:bird|pc[2]                ; bird:bird|pc[2]                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.790      ;
+; 0.572 ; vga_sync:vga|v_count[5]        ; vga_sync:vga|v_count[5]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.791      ;
+; 0.573 ; vga_sync:vga|v_count[8]        ; vga_sync:vga|v_count[8]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.792      ;
+; 0.574 ; vga_sync:vga|v_count[6]        ; vga_sync:vga|v_count[6]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.793      ;
+; 0.574 ; vga_sync:vga|v_count[4]        ; vga_sync:vga|v_count[4]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.793      ;
+; 0.577 ; vga_sync:vga|v_count[1]        ; vga_sync:vga|v_count[1]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.796      ;
+; 0.577 ; vga_sync:vga|h_count[2]        ; vga_sync:vga|h_count[2]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.796      ;
+; 0.578 ; vga_sync:vga|h_count[1]        ; vga_sync:vga|h_count[1]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.797      ;
+; 0.579 ; vga_sync:vga|h_count[4]        ; vga_sync:vga|h_count[4]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.798      ;
+; 0.580 ; vga_sync:vga|h_count[7]        ; vga_sync:vga|h_count[7]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.799      ;
+; 0.580 ; vga_sync:vga|h_count[3]        ; vga_sync:vga|h_count[3]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.799      ;
+; 0.582 ; vga_sync:vga|h_count[6]        ; vga_sync:vga|h_count[6]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.801      ;
+; 0.582 ; vga_sync:vga|h_count[0]        ; vga_sync:vga|h_count[0]        ; clk          ; clk         ; 0.000        ; 0.078      ; 0.817      ;
+; 0.589 ; bird:bird|pc[6]                ; bird:bird|pc[6]                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.808      ;
+; 0.592 ; bird:bird|pc[5]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.174      ;
+; 0.594 ; keyboard:keyboard|state.END    ; keyboard:keyboard|state.IDLE   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.813      ;
+; 0.594 ; bird:bird|pc[5]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.176      ;
+; 0.599 ; bird:bird|pc[0]                ; bird:bird|pc[0]                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.818      ;
+; 0.613 ; keyboard:keyboard|status       ; keyboard:keyboard|state.IDLE   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.832      ;
+; 0.617 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|state.END    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.836      ;
+; 0.623 ; bird:bird|pc[9]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.425      ; 1.205      ;
+; 0.626 ; bird:bird|pc[0]                ; bird:bird|pc[3]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.208      ;
+; 0.629 ; bird:bird|pc[6]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.425      ; 1.211      ;
+; 0.637 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|count[1]     ; clk          ; clk         ; 0.000        ; 0.062      ; 0.856      ;
+; 0.649 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|count[2]     ; clk          ; clk         ; 0.000        ; 0.062      ; 0.868      ;
+; 0.653 ; bird:bird|ir[7]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.441      ; 1.251      ;
+; 0.663 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|count[0]     ; clk          ; clk         ; 0.000        ; 0.062      ; 0.882      ;
+; 0.677 ; keyboard:keyboard|char[5]      ; keyboard:keyboard|char[4]      ; clk          ; clk         ; 0.000        ; 0.076      ; 0.910      ;
+; 0.682 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|count[3]     ; clk          ; clk         ; 0.000        ; 0.062      ; 0.901      ;
+; 0.690 ; keyboard:keyboard|filter[4]    ; keyboard:keyboard|c[1]         ; clk          ; clk         ; 0.000        ; 0.062      ; 0.909      ;
+; 0.690 ; bird:bird|pc[4]                ; bird:bird|pc[4]                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.909      ;
+; 0.700 ; bird:bird|pc[7]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.077      ; 0.934      ;
+; 0.706 ; bird:bird|pc[5]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.425      ; 1.288      ;
+; 0.711 ; vga_sync:vga|h_count[9]        ; vga_sync:vga|h_count[9]        ; clk          ; clk         ; 0.000        ; 0.062      ; 0.930      ;
+; 0.712 ; bird:bird|pc[9]                ; bird:bird|pc[9]                ; clk          ; clk         ; 0.000        ; 0.062      ; 0.931      ;
+; 0.721 ; bird:bird|pc[2]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.303      ;
+; 0.723 ; bird:bird|pc[2]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.305      ;
+; 0.728 ; bird:bird|pc[4]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.310      ;
+; 0.730 ; bird:bird|pc[4]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.312      ;
+; 0.733 ; bird:bird|pc[9]                ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.425      ; 1.315      ;
+; 0.739 ; bird:bird|pc[6]                ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.425      ; 1.321      ;
+; 0.748 ; keyboard:keyboard|count[0]     ; keyboard:keyboard|count[1]     ; clk          ; clk         ; 0.000        ; 0.062      ; 0.967      ;
+; 0.764 ; bird:bird|state[0]             ; bird:bird|state[2]             ; clk          ; clk         ; 0.000        ; 0.062      ; 0.983      ;
+; 0.785 ; keyboard:keyboard|filter[0]    ; keyboard:keyboard|c[1]         ; clk          ; clk         ; 0.000        ; 0.062      ; 1.004      ;
+; 0.794 ; keyboard:keyboard|filter[5]    ; keyboard:keyboard|c[1]         ; clk          ; clk         ; 0.000        ; 0.062      ; 1.013      ;
+; 0.796 ; vga_sync:vga|v_count[9]        ; vga_sync:vga|v_count[9]        ; clk          ; clk         ; 0.000        ; 0.062      ; 1.015      ;
+; 0.796 ; bird:bird|state[2]             ; bird:bird|regbank[7][1]        ; clk          ; clk         ; 0.000        ; 0.063      ; 1.016      ;
+; 0.816 ; bird:bird|pc[5]                ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.425      ; 1.398      ;
+; 0.830 ; keyboard:keyboard|count[3]     ; keyboard:keyboard|state.END    ; clk          ; clk         ; 0.000        ; 0.062      ; 1.049      ;
+; 0.835 ; bird:bird|pc[2]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.425      ; 1.417      ;
+; 0.836 ; bird:bird|state[2]             ; bird:bird|state[1]             ; clk          ; clk         ; 0.000        ; 0.063      ; 1.056      ;
+; 0.839 ; keyboard:keyboard|count[3]     ; keyboard:keyboard|state.READ   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.058      ;
+; 0.842 ; bird:bird|pc[4]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.425      ; 1.424      ;
+; 0.844 ; vga_sync:vga|v_count[7]        ; vga_sync:vga|v_count[8]        ; clk          ; clk         ; 0.000        ; 0.062      ; 1.063      ;
+; 0.845 ; bird:bird|pc[5]                ; bird:bird|pc[6]                ; clk          ; clk         ; 0.000        ; 0.062      ; 1.064      ;
+; 0.846 ; vga_sync:vga|v_count[5]        ; vga_sync:vga|v_count[6]        ; clk          ; clk         ; 0.000        ; 0.062      ; 1.065      ;
+; 0.847 ; bird:bird|pc[10]               ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.077      ; 1.081      ;
+; 0.849 ; bird:bird|pc[8]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.077      ; 1.083      ;
+; 0.850 ; bird:bird|pc[0]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.432      ;
+; 0.852 ; vga_sync:vga|h_count[1]        ; vga_sync:vga|h_count[2]        ; clk          ; clk         ; 0.000        ; 0.062      ; 1.071      ;
+; 0.852 ; bird:bird|pc[0]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.425      ; 1.434      ;
+; 0.853 ; vga_sync:vga|v_count[3]        ; vga_sync:vga|v_count[4]        ; clk          ; clk         ; 0.000        ; 0.062      ; 1.072      ;
+; 0.854 ; vga_sync:vga|h_count[3]        ; vga_sync:vga|h_count[4]        ; clk          ; clk         ; 0.000        ; 0.062      ; 1.073      ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width: 'clk'                                                    ;
++--------+--------------+----------------+------------+-------+------------+--------------------------+
+; Slack  ; Actual Width ; Required Width ; Type       ; Clock ; Clock Edge ; Target                   ;
++--------+--------------+----------------+------------+-------+------------+--------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate  ; clk   ; Rise       ; clk                      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[0]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[10]         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[11]         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[1]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[2]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[3]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[4]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[5]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[6]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[7]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[8]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[9]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[0]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[10]         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[11]         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[1]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[2]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[3]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[4]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[5]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[6]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[7]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[8]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[9]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][4]  ;
++--------+--------------+----------------+------------+-------+------------+--------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; ps2c      ; clk        ; -0.246 ; -0.118 ; Rise       ; clk             ;
+; ps2d      ; clk        ; -0.456 ; -0.340 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; ps2c      ; clk        ; 0.538 ; 0.418 ; Rise       ; clk             ;
+; ps2d      ; clk        ; 0.755 ; 0.637 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; hsync     ; clk        ; 8.864  ; 8.712  ; Rise       ; clk             ;
+; rgb[*]    ; clk        ; 14.672 ; 14.655 ; Rise       ; clk             ;
+;  rgb[1]   ; clk        ; 14.672 ; 14.612 ; Rise       ; clk             ;
+;  rgb[2]   ; clk        ; 14.597 ; 14.655 ; Rise       ; clk             ;
+; vsync     ; clk        ; 9.921  ; 9.703  ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; hsync     ; clk        ; 7.653 ; 7.562 ; Rise       ; clk             ;
+; rgb[*]    ; clk        ; 9.506 ; 9.521 ; Rise       ; clk             ;
+;  rgb[1]   ; clk        ; 9.585 ; 9.521 ; Rise       ; clk             ;
+;  rgb[2]   ; clk        ; 9.506 ; 9.569 ; Rise       ; clk             ;
+; vsync     ; clk        ; 8.667 ; 8.472 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+----------------------------------------------
+; Slow 1200mV 85C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 104.06 MHz ; 104.06 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -8.610 ; -14570.391        ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.307 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -2290.000                       ;
++-------+--------+---------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                                 ;
++--------+-------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+; -8.610 ; bird:bird|ir[3]         ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.069     ; 9.536      ;
+; -8.610 ; bird:bird|ir[3]         ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.069     ; 9.536      ;
+; -8.522 ; bird:bird|ir[3]         ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.069     ; 9.448      ;
+; -8.519 ; bird:bird|ir[3]         ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.069     ; 9.445      ;
+; -8.477 ; bird:bird|ir[4]         ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.070     ; 9.402      ;
+; -8.477 ; bird:bird|ir[4]         ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.070     ; 9.402      ;
+; -8.388 ; bird:bird|ir[4]         ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.070     ; 9.313      ;
+; -8.386 ; bird:bird|ir[4]         ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.070     ; 9.311      ;
+; -8.377 ; bird:bird|ir[3]         ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.070     ; 9.302      ;
+; -8.373 ; bird:bird|ir[3]         ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.070     ; 9.298      ;
+; -8.366 ; bird:bird|ir[3]         ; bird:bird|regbank[1][8]  ; clk          ; clk         ; 1.000        ; -0.070     ; 9.291      ;
+; -8.352 ; bird:bird|state[2]      ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.078     ; 9.269      ;
+; -8.348 ; bird:bird|state[2]      ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.078     ; 9.265      ;
+; -8.348 ; bird:bird|state[2]      ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.078     ; 9.265      ;
+; -8.348 ; bird:bird|state[2]      ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.078     ; 9.265      ;
+; -8.328 ; bird:bird|regbank[1][4] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.268      ;
+; -8.328 ; bird:bird|regbank[1][4] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.268      ;
+; -8.327 ; bird:bird|regbank[0][3] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.398     ; 8.924      ;
+; -8.327 ; bird:bird|regbank[0][3] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.398     ; 8.924      ;
+; -8.317 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.056     ; 9.256      ;
+; -8.309 ; bird:bird|ir[3]         ; bird:bird|regbank[4][6]  ; clk          ; clk         ; 1.000        ; 0.260      ; 9.564      ;
+; -8.307 ; bird:bird|state[0]      ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.223      ;
+; -8.303 ; bird:bird|state[0]      ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.219      ;
+; -8.282 ; bird:bird|ir[3]         ; bird:bird|regbank[5][6]  ; clk          ; clk         ; 1.000        ; 0.287      ; 9.564      ;
+; -8.276 ; bird:bird|ir[3]         ; bird:bird|pc[0]          ; clk          ; clk         ; 1.000        ; -0.055     ; 9.216      ;
+; -8.270 ; bird:bird|state[3]      ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.186      ;
+; -8.270 ; bird:bird|state[3]      ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.186      ;
+; -8.251 ; bird:bird|ir[3]         ; bird:bird|regbank[1][0]  ; clk          ; clk         ; 1.000        ; -0.069     ; 9.177      ;
+; -8.251 ; bird:bird|ir[3]         ; bird:bird|regbank[6][0]  ; clk          ; clk         ; 1.000        ; -0.069     ; 9.177      ;
+; -8.244 ; bird:bird|ir[4]         ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.071     ; 9.168      ;
+; -8.241 ; bird:bird|ir[3]         ; bird:bird|regbank[1][9]  ; clk          ; clk         ; 1.000        ; -0.070     ; 9.166      ;
+; -8.240 ; bird:bird|regbank[1][4] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.180      ;
+; -8.240 ; bird:bird|ir[4]         ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.071     ; 9.164      ;
+; -8.239 ; bird:bird|regbank[4][2] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.398     ; 8.836      ;
+; -8.239 ; bird:bird|regbank[4][2] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.398     ; 8.836      ;
+; -8.237 ; bird:bird|regbank[1][4] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.177      ;
+; -8.233 ; bird:bird|ir[4]         ; bird:bird|regbank[1][8]  ; clk          ; clk         ; 1.000        ; -0.071     ; 9.157      ;
+; -8.224 ; bird:bird|ir[3]         ; bird:bird|regbank[1][5]  ; clk          ; clk         ; 1.000        ; -0.070     ; 9.149      ;
+; -8.223 ; bird:bird|state[3]      ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.139      ;
+; -8.221 ; bird:bird|state[2]      ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.137      ;
+; -8.219 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.056     ; 9.158      ;
+; -8.219 ; bird:bird|state[3]      ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.135      ;
+; -8.218 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.158      ;
+; -8.217 ; bird:bird|state[0]      ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.133      ;
+; -8.217 ; bird:bird|state[0]      ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.133      ;
+; -8.214 ; bird:bird|regbank[1][0] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.154      ;
+; -8.213 ; bird:bird|state[2]      ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.078     ; 9.130      ;
+; -8.209 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.149      ;
+; -8.207 ; bird:bird|regbank[6][1] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.147      ;
+; -8.204 ; bird:bird|state[1]      ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.120      ;
+; -8.204 ; bird:bird|state[1]      ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.120      ;
+; -8.196 ; bird:bird|regbank[1][3] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.136      ;
+; -8.196 ; bird:bird|regbank[1][3] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.136      ;
+; -8.196 ; bird:bird|regbank[0][2] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.398     ; 8.793      ;
+; -8.196 ; bird:bird|regbank[0][2] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.398     ; 8.793      ;
+; -8.186 ; bird:bird|state[2]      ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.079     ; 9.102      ;
+; -8.176 ; bird:bird|ir[4]         ; bird:bird|regbank[4][6]  ; clk          ; clk         ; 1.000        ; 0.259      ; 9.430      ;
+; -8.176 ; bird:bird|state[0]      ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.080     ; 9.091      ;
+; -8.168 ; bird:bird|state[0]      ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.084      ;
+; -8.162 ; bird:bird|ir[3]         ; bird:bird|regbank[0][2]  ; clk          ; clk         ; 1.000        ; 0.260      ; 9.417      ;
+; -8.149 ; bird:bird|ir[4]         ; bird:bird|regbank[5][6]  ; clk          ; clk         ; 1.000        ; 0.286      ; 9.430      ;
+; -8.141 ; bird:bird|state[0]      ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.080     ; 9.056      ;
+; -8.135 ; bird:bird|ir[3]         ; bird:bird|regbank[2][2]  ; clk          ; clk         ; 1.000        ; 0.286      ; 9.416      ;
+; -8.116 ; bird:bird|state[2]      ; bird:bird|regbank[6][11] ; clk          ; clk         ; 1.000        ; -0.078     ; 9.033      ;
+; -8.114 ; bird:bird|regbank[1][2] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.054      ;
+; -8.114 ; bird:bird|regbank[1][2] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.054      ;
+; -8.113 ; bird:bird|ir[4]         ; bird:bird|pc[0]          ; clk          ; clk         ; 1.000        ; -0.056     ; 9.052      ;
+; -8.110 ; bird:bird|state[2]      ; bird:bird|regbank[1][3]  ; clk          ; clk         ; 1.000        ; -0.078     ; 9.027      ;
+; -8.108 ; bird:bird|state[2]      ; bird:bird|regbank[6][3]  ; clk          ; clk         ; 1.000        ; -0.078     ; 9.025      ;
+; -8.107 ; bird:bird|ir[4]         ; bird:bird|regbank[1][9]  ; clk          ; clk         ; 1.000        ; -0.071     ; 9.031      ;
+; -8.107 ; bird:bird|ir[3]         ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.069     ; 9.033      ;
+; -8.104 ; bird:bird|regbank[6][3] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.044      ;
+; -8.104 ; bird:bird|regbank[6][3] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 9.044      ;
+; -8.104 ; bird:bird|regbank[4][0] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.386     ; 8.713      ;
+; -8.101 ; bird:bird|ir[3]         ; bird:bird|regbank[4][2]  ; clk          ; clk         ; 1.000        ; 0.260      ; 9.356      ;
+; -8.100 ; bird:bird|regbank[4][0] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.386     ; 8.709      ;
+; -8.098 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.055     ; 9.038      ;
+; -8.098 ; bird:bird|ir[3]         ; bird:bird|regbank[4][14] ; clk          ; clk         ; 1.000        ; 0.226      ; 9.319      ;
+; -8.096 ; bird:bird|ir[3]         ; bird:bird|regbank[0][8]  ; clk          ; clk         ; 1.000        ; 0.230      ; 9.321      ;
+; -8.095 ; bird:bird|regbank[1][4] ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.056     ; 9.034      ;
+; -8.092 ; bird:bird|state[3]      ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.080     ; 9.007      ;
+; -8.091 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.056     ; 9.030      ;
+; -8.091 ; bird:bird|regbank[1][4] ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.056     ; 9.030      ;
+; -8.091 ; bird:bird|ir[4]         ; bird:bird|regbank[1][5]  ; clk          ; clk         ; 1.000        ; -0.071     ; 9.015      ;
+; -8.088 ; bird:bird|ir[4]         ; bird:bird|regbank[1][0]  ; clk          ; clk         ; 1.000        ; -0.070     ; 9.013      ;
+; -8.088 ; bird:bird|ir[4]         ; bird:bird|regbank[6][0]  ; clk          ; clk         ; 1.000        ; -0.070     ; 9.013      ;
+; -8.087 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][8]  ; clk          ; clk         ; 1.000        ; -0.056     ; 9.026      ;
+; -8.084 ; bird:bird|regbank[1][4] ; bird:bird|regbank[1][8]  ; clk          ; clk         ; 1.000        ; -0.056     ; 9.023      ;
+; -8.084 ; bird:bird|state[3]      ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.079     ; 9.000      ;
+; -8.080 ; bird:bird|regbank[0][3] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.398     ; 8.677      ;
+; -8.078 ; bird:bird|regbank[0][3] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.398     ; 8.675      ;
+; -8.078 ; bird:bird|ir[3]         ; bird:bird|regbank[5][2]  ; clk          ; clk         ; 1.000        ; 0.287      ; 9.360      ;
+; -8.073 ; bird:bird|ir[3]         ; bird:bird|regbank[6][14] ; clk          ; clk         ; 1.000        ; 0.253      ; 9.321      ;
+; -8.071 ; bird:bird|state[0]      ; bird:bird|regbank[6][11] ; clk          ; clk         ; 1.000        ; -0.079     ; 8.987      ;
+; -8.069 ; bird:bird|ir[3]         ; bird:bird|regbank[2][8]  ; clk          ; clk         ; 1.000        ; 0.255      ; 9.319      ;
+; -8.066 ; bird:bird|regbank[0][3] ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.399     ; 8.662      ;
+; -8.065 ; bird:bird|state[0]      ; bird:bird|regbank[1][3]  ; clk          ; clk         ; 1.000        ; -0.079     ; 8.981      ;
+; -8.064 ; bird:bird|ir[3]         ; bird:bird|regbank[0][4]  ; clk          ; clk         ; 1.000        ; 0.260      ; 9.319      ;
+; -8.063 ; bird:bird|state[0]      ; bird:bird|regbank[6][3]  ; clk          ; clk         ; 1.000        ; -0.079     ; 8.979      ;
+; -8.061 ; bird:bird|state[2]      ; bird:bird|regbank[4][11] ; clk          ; clk         ; 1.000        ; 0.240      ; 9.296      ;
++--------+-------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                                              ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.307 ; vga_sync:vga|pixel_tick        ; vga_sync:vga|pixel_tick        ; clk          ; clk         ; 0.000        ; 0.068      ; 0.519      ;
+; 0.312 ; bird:bird|state[2]             ; bird:bird|state[2]             ; clk          ; clk         ; 0.000        ; 0.055      ; 0.511      ;
+; 0.313 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|state.READ   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; keyboard:keyboard|count[1]     ; keyboard:keyboard|count[1]     ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; keyboard:keyboard|count[2]     ; keyboard:keyboard|count[2]     ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; keyboard:keyboard|count[0]     ; keyboard:keyboard|count[0]     ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; keyboard:keyboard|count[3]     ; keyboard:keyboard|count[3]     ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; keyboard:keyboard|state.IDLE   ; keyboard:keyboard|state.IDLE   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; keyboard:keyboard|status       ; keyboard:keyboard|status       ; clk          ; clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.327 ; keyboard:keyboard|char[3]      ; keyboard:keyboard|char[2]      ; clk          ; clk         ; 0.000        ; 0.067      ; 0.538      ;
+; 0.327 ; keyboard:keyboard|char[10]     ; keyboard:keyboard|char[9]      ; clk          ; clk         ; 0.000        ; 0.067      ; 0.538      ;
+; 0.351 ; keyboard:keyboard|filter[6]    ; keyboard:keyboard|filter[5]    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.549      ;
+; 0.354 ; keyboard:keyboard|filter[7]    ; keyboard:keyboard|filter[6]    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.552      ;
+; 0.356 ; keyboard:keyboard|filter[4]    ; keyboard:keyboard|filter[3]    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.554      ;
+; 0.438 ; bird:bird|pc[2]                ; bird:bird|pc[3]                ; clk          ; clk         ; 0.000        ; 0.381      ; 0.963      ;
+; 0.453 ; bird:bird|pc[6]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.381      ; 0.978      ;
+; 0.454 ; bird:bird|pc[0]                ; bird:bird|pc[1]                ; clk          ; clk         ; 0.000        ; 0.381      ; 0.979      ;
+; 0.456 ; keyboard:keyboard|char[9]      ; keyboard:keyboard|char[8]      ; clk          ; clk         ; 0.000        ; 0.067      ; 0.667      ;
+; 0.459 ; keyboard:keyboard|char[7]      ; keyboard:keyboard|char[6]      ; clk          ; clk         ; 0.000        ; 0.067      ; 0.670      ;
+; 0.460 ; bird:bird|pc[6]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.381      ; 0.985      ;
+; 0.470 ; keyboard:keyboard|char[6]      ; keyboard:keyboard|char[5]      ; clk          ; clk         ; 0.000        ; 0.067      ; 0.681      ;
+; 0.473 ; keyboard:keyboard|char[2]      ; keyboard:keyboard|char[1]      ; clk          ; clk         ; 0.000        ; 0.067      ; 0.684      ;
+; 0.473 ; keyboard:keyboard|char[4]      ; keyboard:keyboard|char[3]      ; clk          ; clk         ; 0.000        ; 0.067      ; 0.684      ;
+; 0.478 ; keyboard:keyboard|state.END    ; keyboard:keyboard|rx_done_tick ; clk          ; clk         ; 0.000        ; 0.054      ; 0.676      ;
+; 0.479 ; keyboard:keyboard|filter[2]    ; keyboard:keyboard|filter[1]    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.677      ;
+; 0.480 ; keyboard:keyboard|filter[1]    ; keyboard:keyboard|filter[0]    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.678      ;
+; 0.480 ; keyboard:keyboard|filter[5]    ; keyboard:keyboard|filter[4]    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.678      ;
+; 0.481 ; keyboard:keyboard|filter[3]    ; keyboard:keyboard|filter[2]    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.679      ;
+; 0.485 ; keyboard:keyboard|c[1]         ; keyboard:keyboard|c[0]         ; clk          ; clk         ; 0.000        ; 0.054      ; 0.683      ;
+; 0.499 ; bird:bird|pc[3]                ; bird:bird|pc[3]                ; clk          ; clk         ; 0.000        ; 0.068      ; 0.711      ;
+; 0.500 ; keyboard:keyboard|rx_done_tick ; keyboard:keyboard|status       ; clk          ; clk         ; 0.000        ; 0.054      ; 0.698      ;
+; 0.501 ; bird:bird|pc[11]               ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.068      ; 0.713      ;
+; 0.502 ; bird:bird|pc[10]               ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.068      ; 0.714      ;
+; 0.502 ; bird:bird|pc[1]                ; bird:bird|pc[1]                ; clk          ; clk         ; 0.000        ; 0.068      ; 0.714      ;
+; 0.502 ; bird:bird|pc[8]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.068      ; 0.714      ;
+; 0.510 ; vga_sync:vga|v_count[7]        ; vga_sync:vga|v_count[7]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.710      ;
+; 0.513 ; vga_sync:vga|v_count[5]        ; vga_sync:vga|v_count[5]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.713      ;
+; 0.513 ; bird:bird|pc[5]                ; bird:bird|pc[5]                ; clk          ; clk         ; 0.000        ; 0.055      ; 0.712      ;
+; 0.513 ; bird:bird|pc[2]                ; bird:bird|pc[2]                ; clk          ; clk         ; 0.000        ; 0.055      ; 0.712      ;
+; 0.515 ; vga_sync:vga|v_count[8]        ; vga_sync:vga|v_count[8]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.715      ;
+; 0.515 ; vga_sync:vga|v_count[6]        ; vga_sync:vga|v_count[6]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.715      ;
+; 0.516 ; vga_sync:vga|v_count[4]        ; vga_sync:vga|v_count[4]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.716      ;
+; 0.517 ; vga_sync:vga|v_count[1]        ; vga_sync:vga|v_count[1]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.717      ;
+; 0.517 ; vga_sync:vga|h_count[2]        ; vga_sync:vga|h_count[2]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.717      ;
+; 0.518 ; vga_sync:vga|h_count[1]        ; vga_sync:vga|h_count[1]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.718      ;
+; 0.519 ; vga_sync:vga|h_count[7]        ; vga_sync:vga|h_count[7]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.719      ;
+; 0.519 ; vga_sync:vga|h_count[4]        ; vga_sync:vga|h_count[4]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.719      ;
+; 0.519 ; vga_sync:vga|h_count[3]        ; vga_sync:vga|h_count[3]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.719      ;
+; 0.519 ; bird:bird|pc[5]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.381      ; 1.044      ;
+; 0.521 ; vga_sync:vga|h_count[6]        ; vga_sync:vga|h_count[6]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.721      ;
+; 0.522 ; vga_sync:vga|h_count[0]        ; vga_sync:vga|h_count[0]        ; clk          ; clk         ; 0.000        ; 0.069      ; 0.735      ;
+; 0.526 ; bird:bird|pc[5]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.381      ; 1.051      ;
+; 0.529 ; bird:bird|pc[6]                ; bird:bird|pc[6]                ; clk          ; clk         ; 0.000        ; 0.055      ; 0.728      ;
+; 0.531 ; keyboard:keyboard|state.END    ; keyboard:keyboard|state.IDLE   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.729      ;
+; 0.541 ; bird:bird|pc[0]                ; bird:bird|pc[0]                ; clk          ; clk         ; 0.000        ; 0.055      ; 0.740      ;
+; 0.549 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|state.END    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.747      ;
+; 0.549 ; keyboard:keyboard|status       ; keyboard:keyboard|state.IDLE   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.747      ;
+; 0.550 ; bird:bird|pc[0]                ; bird:bird|pc[3]                ; clk          ; clk         ; 0.000        ; 0.381      ; 1.075      ;
+; 0.556 ; bird:bird|pc[6]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.381      ; 1.081      ;
+; 0.567 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|count[1]     ; clk          ; clk         ; 0.000        ; 0.054      ; 0.765      ;
+; 0.570 ; bird:bird|pc[9]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.381      ; 1.095      ;
+; 0.581 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|count[2]     ; clk          ; clk         ; 0.000        ; 0.054      ; 0.779      ;
+; 0.588 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|count[0]     ; clk          ; clk         ; 0.000        ; 0.054      ; 0.786      ;
+; 0.599 ; bird:bird|ir[7]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.395      ; 1.138      ;
+; 0.606 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|count[3]     ; clk          ; clk         ; 0.000        ; 0.054      ; 0.804      ;
+; 0.614 ; keyboard:keyboard|char[5]      ; keyboard:keyboard|char[4]      ; clk          ; clk         ; 0.000        ; 0.067      ; 0.825      ;
+; 0.622 ; bird:bird|pc[5]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.381      ; 1.147      ;
+; 0.628 ; keyboard:keyboard|filter[4]    ; keyboard:keyboard|c[1]         ; clk          ; clk         ; 0.000        ; 0.054      ; 0.826      ;
+; 0.630 ; bird:bird|pc[2]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.381      ; 1.155      ;
+; 0.633 ; bird:bird|pc[4]                ; bird:bird|pc[4]                ; clk          ; clk         ; 0.000        ; 0.055      ; 0.832      ;
+; 0.635 ; vga_sync:vga|h_count[9]        ; vga_sync:vga|h_count[9]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.835      ;
+; 0.637 ; bird:bird|pc[2]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.381      ; 1.162      ;
+; 0.639 ; bird:bird|pc[7]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.068      ; 0.851      ;
+; 0.645 ; bird:bird|pc[6]                ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.381      ; 1.170      ;
+; 0.653 ; bird:bird|pc[9]                ; bird:bird|pc[9]                ; clk          ; clk         ; 0.000        ; 0.055      ; 0.852      ;
+; 0.653 ; bird:bird|pc[4]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.381      ; 1.178      ;
+; 0.659 ; bird:bird|pc[9]                ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.381      ; 1.184      ;
+; 0.660 ; bird:bird|pc[4]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.381      ; 1.185      ;
+; 0.685 ; keyboard:keyboard|count[0]     ; keyboard:keyboard|count[1]     ; clk          ; clk         ; 0.000        ; 0.054      ; 0.883      ;
+; 0.698 ; bird:bird|state[0]             ; bird:bird|state[2]             ; clk          ; clk         ; 0.000        ; 0.055      ; 0.897      ;
+; 0.711 ; bird:bird|pc[5]                ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.381      ; 1.236      ;
+; 0.713 ; keyboard:keyboard|filter[0]    ; keyboard:keyboard|c[1]         ; clk          ; clk         ; 0.000        ; 0.054      ; 0.911      ;
+; 0.718 ; keyboard:keyboard|filter[5]    ; keyboard:keyboard|c[1]         ; clk          ; clk         ; 0.000        ; 0.054      ; 0.916      ;
+; 0.720 ; vga_sync:vga|v_count[9]        ; vga_sync:vga|v_count[9]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.920      ;
+; 0.724 ; bird:bird|state[2]             ; bird:bird|regbank[7][1]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.924      ;
+; 0.733 ; bird:bird|pc[2]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.381      ; 1.258      ;
+; 0.742 ; keyboard:keyboard|count[3]     ; keyboard:keyboard|state.END    ; clk          ; clk         ; 0.000        ; 0.054      ; 0.940      ;
+; 0.742 ; bird:bird|pc[0]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.381      ; 1.267      ;
+; 0.749 ; bird:bird|pc[0]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.381      ; 1.274      ;
+; 0.753 ; bird:bird|state[2]             ; bird:bird|state[1]             ; clk          ; clk         ; 0.000        ; 0.056      ; 0.953      ;
+; 0.753 ; bird:bird|pc[10]               ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.068      ; 0.965      ;
+; 0.754 ; keyboard:keyboard|count[3]     ; keyboard:keyboard|state.READ   ; clk          ; clk         ; 0.000        ; 0.054      ; 0.952      ;
+; 0.754 ; vga_sync:vga|v_count[7]        ; vga_sync:vga|v_count[8]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.954      ;
+; 0.756 ; bird:bird|pc[5]                ; bird:bird|pc[6]                ; clk          ; clk         ; 0.000        ; 0.055      ; 0.955      ;
+; 0.756 ; bird:bird|pc[4]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.381      ; 1.281      ;
+; 0.758 ; vga_sync:vga|v_count[5]        ; vga_sync:vga|v_count[6]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.958      ;
+; 0.760 ; bird:bird|pc[8]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.068      ; 0.972      ;
+; 0.761 ; vga_sync:vga|v_count[3]        ; vga_sync:vga|v_count[4]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.961      ;
+; 0.763 ; vga_sync:vga|h_count[1]        ; vga_sync:vga|h_count[2]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.963      ;
+; 0.763 ; vga_sync:vga|h_count[5]        ; vga_sync:vga|h_count[6]        ; clk          ; clk         ; 0.000        ; 0.056      ; 0.963      ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width: 'clk'                                                     ;
++--------+--------------+----------------+------------+-------+------------+--------------------------+
+; Slack  ; Actual Width ; Required Width ; Type       ; Clock ; Clock Edge ; Target                   ;
++--------+--------------+----------------+------------+-------+------------+--------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate  ; clk   ; Rise       ; clk                      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[0]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[10]         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[11]         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[1]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[2]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[3]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[4]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[5]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[6]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[7]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[8]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[9]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[0]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[10]         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[11]         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[1]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[2]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[3]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[4]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[5]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[6]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[7]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[8]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[9]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][4]  ;
++--------+--------------+----------------+------------+-------+------------+--------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; ps2c      ; clk        ; -0.198 ; -0.064 ; Rise       ; clk             ;
+; ps2d      ; clk        ; -0.406 ; -0.260 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; ps2c      ; clk        ; 0.460 ; 0.331 ; Rise       ; clk             ;
+; ps2d      ; clk        ; 0.674 ; 0.528 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; hsync     ; clk        ; 7.945  ; 7.842  ; Rise       ; clk             ;
+; rgb[*]    ; clk        ; 13.197 ; 13.209 ; Rise       ; clk             ;
+;  rgb[1]   ; clk        ; 13.197 ; 13.209 ; Rise       ; clk             ;
+;  rgb[2]   ; clk        ; 13.196 ; 13.181 ; Rise       ; clk             ;
+; vsync     ; clk        ; 8.887  ; 8.788  ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; hsync     ; clk        ; 6.853 ; 6.819 ; Rise       ; clk             ;
+; rgb[*]    ; clk        ; 8.586 ; 8.571 ; Rise       ; clk             ;
+;  rgb[1]   ; clk        ; 8.586 ; 8.604 ; Rise       ; clk             ;
+;  rgb[2]   ; clk        ; 8.592 ; 8.571 ; Rise       ; clk             ;
+; vsync     ; clk        ; 7.759 ; 7.668 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Slow 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -5.080 ; -8505.759         ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.186 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -2422.390                       ;
++-------+--------+---------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                                 ;
++--------+-------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+; -5.080 ; bird:bird|ir[3]         ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.048     ; 6.019      ;
+; -5.078 ; bird:bird|ir[3]         ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.048     ; 6.017      ;
+; -5.066 ; bird:bird|state[2]      ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.998      ;
+; -5.063 ; bird:bird|state[2]      ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.995      ;
+; -5.052 ; bird:bird|state[2]      ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.984      ;
+; -5.050 ; bird:bird|state[2]      ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.982      ;
+; -5.049 ; bird:bird|ir[3]         ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.048     ; 5.988      ;
+; -5.046 ; bird:bird|ir[3]         ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.048     ; 5.985      ;
+; -5.026 ; bird:bird|state[2]      ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.958      ;
+; -5.024 ; bird:bird|state[0]      ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.956      ;
+; -5.021 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.971      ;
+; -5.021 ; bird:bird|state[0]      ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.953      ;
+; -5.018 ; bird:bird|regbank[6][1] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.968      ;
+; -5.013 ; bird:bird|regbank[0][3] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.244     ; 5.756      ;
+; -5.011 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.961      ;
+; -5.011 ; bird:bird|regbank[0][3] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.244     ; 5.754      ;
+; -5.005 ; bird:bird|state[1]      ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.937      ;
+; -5.003 ; bird:bird|state[1]      ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.935      ;
+; -4.999 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.949      ;
+; -4.994 ; bird:bird|state[3]      ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.926      ;
+; -4.992 ; bird:bird|state[3]      ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.924      ;
+; -4.984 ; bird:bird|state[0]      ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.916      ;
+; -4.981 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.931      ;
+; -4.980 ; bird:bird|regbank[4][2] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.244     ; 5.723      ;
+; -4.979 ; bird:bird|ir[4]         ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.049     ; 5.917      ;
+; -4.978 ; bird:bird|regbank[1][0] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.928      ;
+; -4.978 ; bird:bird|regbank[4][2] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.244     ; 5.721      ;
+; -4.978 ; bird:bird|state[2]      ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.055     ; 5.910      ;
+; -4.977 ; bird:bird|ir[4]         ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.049     ; 5.915      ;
+; -4.968 ; bird:bird|ir[3]         ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.048     ; 5.907      ;
+; -4.964 ; bird:bird|regbank[1][3] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.914      ;
+; -4.963 ; bird:bird|state[3]      ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.895      ;
+; -4.962 ; bird:bird|regbank[1][3] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.912      ;
+; -4.960 ; bird:bird|state[3]      ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.892      ;
+; -4.960 ; bird:bird|state[2]      ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.892      ;
+; -4.951 ; bird:bird|state[0]      ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.883      ;
+; -4.949 ; bird:bird|state[2]      ; bird:bird|regbank[1][8]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.881      ;
+; -4.949 ; bird:bird|state[0]      ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.881      ;
+; -4.948 ; bird:bird|ir[4]         ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.049     ; 5.886      ;
+; -4.945 ; bird:bird|state[2]      ; bird:bird|regbank[1][3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.877      ;
+; -4.945 ; bird:bird|ir[4]         ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.049     ; 5.883      ;
+; -4.943 ; bird:bird|state[2]      ; bird:bird|regbank[6][3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.875      ;
+; -4.942 ; bird:bird|regbank[0][2] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.244     ; 5.685      ;
+; -4.941 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.891      ;
+; -4.940 ; bird:bird|regbank[0][2] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.244     ; 5.683      ;
+; -4.938 ; bird:bird|ir[4]         ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.049     ; 5.876      ;
+; -4.937 ; bird:bird|regbank[0][3] ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.244     ; 5.680      ;
+; -4.936 ; bird:bird|ir[3]         ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.048     ; 5.875      ;
+; -4.936 ; bird:bird|state[0]      ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.055     ; 5.868      ;
+; -4.936 ; bird:bird|ir[3]         ; bird:bird|regbank[1][8]  ; clk          ; clk         ; 1.000        ; -0.048     ; 5.875      ;
+; -4.935 ; bird:bird|ir[3]         ; bird:bird|regbank[6][0]  ; clk          ; clk         ; 1.000        ; -0.048     ; 5.874      ;
+; -4.934 ; bird:bird|ir[3]         ; bird:bird|regbank[1][0]  ; clk          ; clk         ; 1.000        ; -0.048     ; 5.873      ;
+; -4.932 ; bird:bird|regbank[0][3] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.244     ; 5.675      ;
+; -4.929 ; bird:bird|regbank[0][3] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.244     ; 5.672      ;
+; -4.926 ; bird:bird|ir[4]         ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.049     ; 5.864      ;
+; -4.924 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][8]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.874      ;
+; -4.923 ; bird:bird|state[3]      ; bird:bird|regbank[1][4]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.855      ;
+; -4.919 ; bird:bird|regbank[1][2] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.869      ;
+; -4.919 ; bird:bird|ir[3]         ; bird:bird|regbank[1][9]  ; clk          ; clk         ; 1.000        ; -0.048     ; 5.858      ;
+; -4.918 ; bird:bird|state[0]      ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.850      ;
+; -4.917 ; bird:bird|regbank[1][2] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.867      ;
+; -4.914 ; bird:bird|ir[3]         ; bird:bird|pc[0]          ; clk          ; clk         ; 1.000        ; -0.036     ; 5.865      ;
+; -4.909 ; bird:bird|ir[3]         ; bird:bird|regbank[4][6]  ; clk          ; clk         ; 1.000        ; 0.151      ; 6.047      ;
+; -4.907 ; bird:bird|state[0]      ; bird:bird|regbank[1][8]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.839      ;
+; -4.903 ; bird:bird|state[0]      ; bird:bird|regbank[1][3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.835      ;
+; -4.901 ; bird:bird|state[0]      ; bird:bird|regbank[6][3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.833      ;
+; -4.895 ; bird:bird|ir[3]         ; bird:bird|regbank[5][6]  ; clk          ; clk         ; 1.000        ; 0.165      ; 6.047      ;
+; -4.893 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.037     ; 5.843      ;
+; -4.891 ; bird:bird|regbank[1][4] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.841      ;
+; -4.890 ; bird:bird|regbank[6][3] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.840      ;
+; -4.889 ; bird:bird|regbank[1][4] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.839      ;
+; -4.888 ; bird:bird|regbank[6][3] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.838      ;
+; -4.888 ; bird:bird|regbank[1][3] ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.838      ;
+; -4.888 ; bird:bird|regbank[7][2] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.049     ; 5.826      ;
+; -4.886 ; bird:bird|regbank[7][2] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.049     ; 5.824      ;
+; -4.883 ; bird:bird|regbank[1][3] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.833      ;
+; -4.882 ; bird:bird|regbank[6][2] ; bird:bird|regbank[1][6]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.832      ;
+; -4.881 ; bird:bird|state[2]      ; bird:bird|regbank[4][11] ; clk          ; clk         ; 1.000        ; 0.142      ; 6.010      ;
+; -4.881 ; bird:bird|state[2]      ; bird:bird|regbank[4][6]  ; clk          ; clk         ; 1.000        ; 0.144      ; 6.012      ;
+; -4.880 ; bird:bird|regbank[6][2] ; bird:bird|regbank[6][6]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.830      ;
+; -4.880 ; bird:bird|regbank[1][3] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.830      ;
+; -4.877 ; bird:bird|state[2]      ; bird:bird|regbank[6][11] ; clk          ; clk         ; 1.000        ; -0.055     ; 5.809      ;
+; -4.875 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.825      ;
+; -4.875 ; bird:bird|state[3]      ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.055     ; 5.807      ;
+; -4.870 ; bird:bird|regbank[4][0] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.242     ; 5.615      ;
+; -4.867 ; bird:bird|regbank[4][0] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.242     ; 5.612      ;
+; -4.867 ; bird:bird|ir[4]         ; bird:bird|regbank[6][0]  ; clk          ; clk         ; 1.000        ; -0.049     ; 5.805      ;
+; -4.867 ; bird:bird|state[2]      ; bird:bird|regbank[5][6]  ; clk          ; clk         ; 1.000        ; 0.158      ; 6.012      ;
+; -4.866 ; bird:bird|ir[4]         ; bird:bird|regbank[1][0]  ; clk          ; clk         ; 1.000        ; -0.049     ; 5.804      ;
+; -4.866 ; bird:bird|state[1]      ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.798      ;
+; -4.865 ; bird:bird|state[2]      ; bird:bird|regbank[5][11] ; clk          ; clk         ; 1.000        ; 0.158      ; 6.010      ;
+; -4.864 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][8]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.814      ;
+; -4.863 ; bird:bird|state[1]      ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.795      ;
+; -4.860 ; bird:bird|regbank[1][0] ; bird:bird|regbank[1][3]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.810      ;
+; -4.860 ; bird:bird|regbank[1][4] ; bird:bird|regbank[1][2]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.810      ;
+; -4.858 ; bird:bird|regbank[1][0] ; bird:bird|regbank[6][3]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.808      ;
+; -4.857 ; bird:bird|regbank[1][4] ; bird:bird|regbank[6][2]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.807      ;
+; -4.857 ; bird:bird|state[3]      ; bird:bird|regbank[1][7]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.789      ;
+; -4.854 ; bird:bird|ir[3]         ; bird:bird|regbank[1][10] ; clk          ; clk         ; 1.000        ; -0.048     ; 5.793      ;
+; -4.853 ; bird:bird|regbank[6][1] ; bird:bird|regbank[1][3]  ; clk          ; clk         ; 1.000        ; -0.037     ; 5.803      ;
++--------+-------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                                              ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.186 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|state.READ   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; keyboard:keyboard|count[1]     ; keyboard:keyboard|count[1]     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; keyboard:keyboard|count[2]     ; keyboard:keyboard|count[2]     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; keyboard:keyboard|count[0]     ; keyboard:keyboard|count[0]     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; keyboard:keyboard|count[3]     ; keyboard:keyboard|count[3]     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; keyboard:keyboard|state.IDLE   ; keyboard:keyboard|state.IDLE   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; keyboard:keyboard|status       ; keyboard:keyboard|status       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; vga_sync:vga|pixel_tick        ; vga_sync:vga|pixel_tick        ; clk          ; clk         ; 0.000        ; 0.044      ; 0.314      ;
+; 0.186 ; bird:bird|state[2]             ; bird:bird|state[2]             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; keyboard:keyboard|char[3]      ; keyboard:keyboard|char[2]      ; clk          ; clk         ; 0.000        ; 0.044      ; 0.314      ;
+; 0.186 ; keyboard:keyboard|char[10]     ; keyboard:keyboard|char[9]      ; clk          ; clk         ; 0.000        ; 0.044      ; 0.314      ;
+; 0.202 ; keyboard:keyboard|filter[6]    ; keyboard:keyboard|filter[5]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.323      ;
+; 0.204 ; keyboard:keyboard|filter[7]    ; keyboard:keyboard|filter[6]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.325      ;
+; 0.205 ; keyboard:keyboard|filter[4]    ; keyboard:keyboard|filter[3]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.326      ;
+; 0.262 ; keyboard:keyboard|char[9]      ; keyboard:keyboard|char[8]      ; clk          ; clk         ; 0.000        ; 0.044      ; 0.390      ;
+; 0.264 ; keyboard:keyboard|char[7]      ; keyboard:keyboard|char[6]      ; clk          ; clk         ; 0.000        ; 0.044      ; 0.392      ;
+; 0.270 ; bird:bird|pc[2]                ; bird:bird|pc[3]                ; clk          ; clk         ; 0.000        ; 0.231      ; 0.585      ;
+; 0.270 ; keyboard:keyboard|char[6]      ; keyboard:keyboard|char[5]      ; clk          ; clk         ; 0.000        ; 0.044      ; 0.398      ;
+; 0.271 ; keyboard:keyboard|char[4]      ; keyboard:keyboard|char[3]      ; clk          ; clk         ; 0.000        ; 0.044      ; 0.399      ;
+; 0.273 ; keyboard:keyboard|char[2]      ; keyboard:keyboard|char[1]      ; clk          ; clk         ; 0.000        ; 0.044      ; 0.401      ;
+; 0.275 ; keyboard:keyboard|state.END    ; keyboard:keyboard|rx_done_tick ; clk          ; clk         ; 0.000        ; 0.037      ; 0.396      ;
+; 0.277 ; keyboard:keyboard|c[1]         ; keyboard:keyboard|c[0]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.398      ;
+; 0.277 ; keyboard:keyboard|filter[1]    ; keyboard:keyboard|filter[0]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.398      ;
+; 0.277 ; keyboard:keyboard|filter[2]    ; keyboard:keyboard|filter[1]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.398      ;
+; 0.277 ; keyboard:keyboard|filter[5]    ; keyboard:keyboard|filter[4]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.398      ;
+; 0.280 ; keyboard:keyboard|filter[3]    ; keyboard:keyboard|filter[2]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.401      ;
+; 0.280 ; bird:bird|pc[0]                ; bird:bird|pc[1]                ; clk          ; clk         ; 0.000        ; 0.231      ; 0.595      ;
+; 0.281 ; bird:bird|pc[6]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.231      ; 0.596      ;
+; 0.284 ; bird:bird|pc[6]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.231      ; 0.599      ;
+; 0.294 ; keyboard:keyboard|rx_done_tick ; keyboard:keyboard|status       ; clk          ; clk         ; 0.000        ; 0.037      ; 0.415      ;
+; 0.298 ; bird:bird|pc[11]               ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.044      ; 0.426      ;
+; 0.298 ; bird:bird|pc[3]                ; bird:bird|pc[3]                ; clk          ; clk         ; 0.000        ; 0.044      ; 0.426      ;
+; 0.298 ; bird:bird|pc[1]                ; bird:bird|pc[1]                ; clk          ; clk         ; 0.000        ; 0.044      ; 0.426      ;
+; 0.298 ; bird:bird|pc[8]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.044      ; 0.426      ;
+; 0.299 ; bird:bird|pc[10]               ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.044      ; 0.427      ;
+; 0.304 ; vga_sync:vga|v_count[7]        ; vga_sync:vga|v_count[7]        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.305 ; vga_sync:vga|v_count[5]        ; vga_sync:vga|v_count[5]        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.306 ; vga_sync:vga|v_count[8]        ; vga_sync:vga|v_count[8]        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; vga_sync:vga|v_count[6]        ; vga_sync:vga|v_count[6]        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; vga_sync:vga|v_count[4]        ; vga_sync:vga|v_count[4]        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; bird:bird|pc[5]                ; bird:bird|pc[5]                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; bird:bird|pc[2]                ; bird:bird|pc[2]                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.308 ; vga_sync:vga|v_count[1]        ; vga_sync:vga|v_count[1]        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.429      ;
+; 0.310 ; vga_sync:vga|h_count[7]        ; vga_sync:vga|h_count[7]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.430      ;
+; 0.310 ; vga_sync:vga|h_count[2]        ; vga_sync:vga|h_count[2]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.430      ;
+; 0.310 ; vga_sync:vga|h_count[1]        ; vga_sync:vga|h_count[1]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.430      ;
+; 0.311 ; vga_sync:vga|h_count[6]        ; vga_sync:vga|h_count[6]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.431      ;
+; 0.311 ; vga_sync:vga|h_count[4]        ; vga_sync:vga|h_count[4]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.431      ;
+; 0.311 ; vga_sync:vga|h_count[3]        ; vga_sync:vga|h_count[3]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.431      ;
+; 0.311 ; vga_sync:vga|h_count[0]        ; vga_sync:vga|h_count[0]        ; clk          ; clk         ; 0.000        ; 0.045      ; 0.440      ;
+; 0.317 ; keyboard:keyboard|state.END    ; keyboard:keyboard|state.IDLE   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.438      ;
+; 0.317 ; bird:bird|pc[6]                ; bird:bird|pc[6]                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.437      ;
+; 0.322 ; bird:bird|pc[0]                ; bird:bird|pc[0]                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.442      ;
+; 0.322 ; bird:bird|pc[5]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.231      ; 0.637      ;
+; 0.325 ; bird:bird|pc[5]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.231      ; 0.640      ;
+; 0.326 ; keyboard:keyboard|status       ; keyboard:keyboard|state.IDLE   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.447      ;
+; 0.331 ; bird:bird|pc[9]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.231      ; 0.646      ;
+; 0.333 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|state.END    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.454      ;
+; 0.342 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|count[1]     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.463      ;
+; 0.343 ; keyboard:keyboard|char[5]      ; keyboard:keyboard|char[4]      ; clk          ; clk         ; 0.000        ; 0.044      ; 0.471      ;
+; 0.346 ; bird:bird|pc[0]                ; bird:bird|pc[3]                ; clk          ; clk         ; 0.000        ; 0.231      ; 0.661      ;
+; 0.350 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|count[2]     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.471      ;
+; 0.350 ; bird:bird|pc[6]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.231      ; 0.665      ;
+; 0.354 ; bird:bird|ir[7]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.242      ; 0.680      ;
+; 0.358 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|count[0]     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.479      ;
+; 0.360 ; keyboard:keyboard|filter[4]    ; keyboard:keyboard|c[1]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.481      ;
+; 0.365 ; bird:bird|pc[4]                ; bird:bird|pc[4]                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.485      ;
+; 0.367 ; keyboard:keyboard|state.READ   ; keyboard:keyboard|count[3]     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.488      ;
+; 0.371 ; bird:bird|pc[7]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.044      ; 0.499      ;
+; 0.373 ; vga_sync:vga|h_count[9]        ; vga_sync:vga|h_count[9]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.493      ;
+; 0.378 ; bird:bird|pc[9]                ; bird:bird|pc[9]                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.498      ;
+; 0.391 ; bird:bird|pc[5]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.231      ; 0.706      ;
+; 0.394 ; bird:bird|pc[9]                ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.231      ; 0.709      ;
+; 0.395 ; bird:bird|pc[4]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.231      ; 0.710      ;
+; 0.396 ; keyboard:keyboard|count[0]     ; keyboard:keyboard|count[1]     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.517      ;
+; 0.398 ; bird:bird|pc[4]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.231      ; 0.713      ;
+; 0.402 ; bird:bird|state[0]             ; bird:bird|state[2]             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.523      ;
+; 0.402 ; bird:bird|pc[2]                ; bird:bird|pc[7]                ; clk          ; clk         ; 0.000        ; 0.231      ; 0.717      ;
+; 0.405 ; bird:bird|pc[2]                ; bird:bird|pc[8]                ; clk          ; clk         ; 0.000        ; 0.231      ; 0.720      ;
+; 0.412 ; bird:bird|state[2]             ; bird:bird|regbank[7][1]        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.533      ;
+; 0.413 ; keyboard:keyboard|filter[0]    ; keyboard:keyboard|c[1]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.534      ;
+; 0.413 ; bird:bird|pc[6]                ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.231      ; 0.728      ;
+; 0.417 ; vga_sync:vga|v_count[9]        ; vga_sync:vga|v_count[9]        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.538      ;
+; 0.418 ; keyboard:keyboard|filter[5]    ; keyboard:keyboard|c[1]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.539      ;
+; 0.446 ; bird:bird|state[2]             ; bird:bird|state[1]             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.567      ;
+; 0.453 ; vga_sync:vga|v_count[7]        ; vga_sync:vga|v_count[8]        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.574      ;
+; 0.454 ; vga_sync:vga|v_count[5]        ; vga_sync:vga|v_count[6]        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.575      ;
+; 0.454 ; bird:bird|pc[5]                ; bird:bird|pc[6]                ; clk          ; clk         ; 0.000        ; 0.036      ; 0.574      ;
+; 0.454 ; bird:bird|pc[5]                ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.231      ; 0.769      ;
+; 0.458 ; bird:bird|pc[10]               ; bird:bird|pc[11]               ; clk          ; clk         ; 0.000        ; 0.044      ; 0.586      ;
+; 0.459 ; vga_sync:vga|h_count[1]        ; vga_sync:vga|h_count[2]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.579      ;
+; 0.460 ; keyboard:keyboard|count[3]     ; keyboard:keyboard|state.READ   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.581      ;
+; 0.460 ; vga_sync:vga|v_count[3]        ; vga_sync:vga|v_count[4]        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.581      ;
+; 0.460 ; vga_sync:vga|h_count[3]        ; vga_sync:vga|h_count[4]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.580      ;
+; 0.460 ; bird:bird|pc[8]                ; bird:bird|pc[10]               ; clk          ; clk         ; 0.000        ; 0.044      ; 0.588      ;
+; 0.461 ; keyboard:keyboard|filter[7]    ; keyboard:keyboard|c[1]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.582      ;
+; 0.461 ; keyboard:keyboard|count[3]     ; keyboard:keyboard|state.END    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.582      ;
+; 0.461 ; vga_sync:vga|h_count[5]        ; vga_sync:vga|h_count[6]        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.581      ;
+; 0.462 ; keyboard:keyboard|filter[6]    ; keyboard:keyboard|c[1]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.583      ;
+; 0.464 ; vga_sync:vga|v_count[2]        ; vga_sync:vga|v_count[2]        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.585      ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width: 'clk'                                                     ;
++--------+--------------+----------------+------------+-------+------------+--------------------------+
+; Slack  ; Actual Width ; Required Width ; Type       ; Clock ; Clock Edge ; Target                   ;
++--------+--------------+----------------+------------+-------+------------+--------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate  ; clk   ; Rise       ; clk                      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[0]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[10]         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[11]         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[1]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[2]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[3]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[4]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[5]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[6]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[7]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[8]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|ir[9]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[0]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[10]         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[11]         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[1]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[2]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[3]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[4]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[5]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[6]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[7]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[8]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|pc[9]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[0][9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[1][9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[2][9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[3][9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period ; clk   ; Rise       ; bird:bird|regbank[4][4]  ;
++--------+--------------+----------------+------------+-------+------------+--------------------------+
+
+
++------------------------------------------------------------------------+
+; Setup Times                                                            ;
++-----------+------------+--------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+-------+------------+-----------------+
+; ps2c      ; clk        ; -0.116 ; 0.168 ; Rise       ; clk             ;
+; ps2d      ; clk        ; -0.251 ; 0.041 ; Rise       ; clk             ;
++-----------+------------+--------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; ps2c      ; clk        ; 0.282 ; 0.001 ; Rise       ; clk             ;
+; ps2d      ; clk        ; 0.421 ; 0.126 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; hsync     ; clk        ; 5.284 ; 5.063 ; Rise       ; clk             ;
+; rgb[*]    ; clk        ; 8.683 ; 8.672 ; Rise       ; clk             ;
+;  rgb[1]   ; clk        ; 8.683 ; 8.367 ; Rise       ; clk             ;
+;  rgb[2]   ; clk        ; 8.358 ; 8.672 ; Rise       ; clk             ;
+; vsync     ; clk        ; 6.007 ; 5.663 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; hsync     ; clk        ; 4.588 ; 4.397 ; Rise       ; clk             ;
+; rgb[*]    ; clk        ; 5.443 ; 5.452 ; Rise       ; clk             ;
+;  rgb[1]   ; clk        ; 5.772 ; 5.452 ; Rise       ; clk             ;
+;  rgb[2]   ; clk        ; 5.443 ; 5.762 ; Rise       ; clk             ;
+; vsync     ; clk        ; 5.289 ; 4.952 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Fast 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++----------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                              ;
++------------------+------------+-------+----------+---------+---------------------+
+; Clock            ; Setup      ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+------------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -9.614     ; 0.186 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -9.614     ; 0.186 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -16378.724 ; 0.0   ; 0.0      ; 0.0     ; -2422.39            ;
+;  clk             ; -16378.724 ; 0.000 ; N/A      ; N/A     ; -2422.390           ;
++------------------+------------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------+
+; Setup Times                                                            ;
++-----------+------------+--------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+-------+------------+-----------------+
+; ps2c      ; clk        ; -0.116 ; 0.168 ; Rise       ; clk             ;
+; ps2d      ; clk        ; -0.251 ; 0.041 ; Rise       ; clk             ;
++-----------+------------+--------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; ps2c      ; clk        ; 0.538 ; 0.418 ; Rise       ; clk             ;
+; ps2d      ; clk        ; 0.755 ; 0.637 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; hsync     ; clk        ; 8.864  ; 8.712  ; Rise       ; clk             ;
+; rgb[*]    ; clk        ; 14.672 ; 14.655 ; Rise       ; clk             ;
+;  rgb[1]   ; clk        ; 14.672 ; 14.612 ; Rise       ; clk             ;
+;  rgb[2]   ; clk        ; 14.597 ; 14.655 ; Rise       ; clk             ;
+; vsync     ; clk        ; 9.921  ; 9.703  ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; hsync     ; clk        ; 4.588 ; 4.397 ; Rise       ; clk             ;
+; rgb[*]    ; clk        ; 5.443 ; 5.452 ; Rise       ; clk             ;
+;  rgb[1]   ; clk        ; 5.772 ; 5.452 ; Rise       ; clk             ;
+;  rgb[2]   ; clk        ; 5.443 ; 5.762 ; Rise       ; clk             ;
+; vsync     ; clk        ; 5.289 ; 4.952 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; ground        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; rgb[0]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; rgb[1]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; rgb[2]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; hsync         ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; vsync         ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ps2d                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ps2c                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; ground        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.95e-09 V                   ; 2.38 V              ; -0.016 V            ; 0.22 V                               ; 0.025 V                              ; 3.06e-10 s                  ; 3.3e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.95e-09 V                  ; 2.38 V             ; -0.016 V           ; 0.22 V                              ; 0.025 V                             ; 3.06e-10 s                 ; 3.3e-10 s                  ; Yes                       ; Yes                       ;
+; rgb[0]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.95e-09 V                   ; 2.38 V              ; -0.016 V            ; 0.22 V                               ; 0.025 V                              ; 3.06e-10 s                  ; 3.3e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.95e-09 V                  ; 2.38 V             ; -0.016 V           ; 0.22 V                              ; 0.025 V                             ; 3.06e-10 s                 ; 3.3e-10 s                  ; Yes                       ; Yes                       ;
+; rgb[1]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.95e-09 V                   ; 2.38 V              ; -0.016 V            ; 0.22 V                               ; 0.025 V                              ; 3.06e-10 s                  ; 3.3e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.95e-09 V                  ; 2.38 V             ; -0.016 V           ; 0.22 V                              ; 0.025 V                             ; 3.06e-10 s                 ; 3.3e-10 s                  ; Yes                       ; Yes                       ;
+; rgb[2]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.95e-09 V                   ; 2.38 V              ; -0.016 V            ; 0.22 V                               ; 0.025 V                              ; 3.06e-10 s                  ; 3.3e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.95e-09 V                  ; 2.38 V             ; -0.016 V           ; 0.22 V                              ; 0.025 V                             ; 3.06e-10 s                 ; 3.3e-10 s                  ; Yes                       ; Yes                       ;
+; hsync         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.95e-09 V                   ; 2.38 V              ; -0.016 V            ; 0.22 V                               ; 0.025 V                              ; 3.06e-10 s                  ; 3.3e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.95e-09 V                  ; 2.38 V             ; -0.016 V           ; 0.22 V                              ; 0.025 V                             ; 3.06e-10 s                 ; 3.3e-10 s                  ; Yes                       ; Yes                       ;
+; vsync         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.95e-09 V                   ; 2.38 V              ; -0.016 V            ; 0.22 V                               ; 0.025 V                              ; 3.06e-10 s                  ; 3.3e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.95e-09 V                  ; 2.38 V             ; -0.016 V           ; 0.22 V                              ; 0.025 V                             ; 3.06e-10 s                 ; 3.3e-10 s                  ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.45e-09 V                   ; 2.38 V              ; -0.0609 V           ; 0.148 V                              ; 0.095 V                              ; 2.82e-10 s                  ; 2.59e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.45e-09 V                  ; 2.38 V             ; -0.0609 V          ; 0.148 V                             ; 0.095 V                             ; 2.82e-10 s                 ; 2.59e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.61e-09 V                   ; 2.38 V              ; -0.00274 V          ; 0.141 V                              ; 0.006 V                              ; 4.7e-10 s                   ; 6.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 5.61e-09 V                  ; 2.38 V             ; -0.00274 V         ; 0.141 V                             ; 0.006 V                             ; 4.7e-10 s                  ; 6.02e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; ground        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.06e-06 V                   ; 2.36 V              ; -0.00724 V          ; 0.107 V                              ; 0.02 V                               ; 4.5e-10 s                   ; 4.25e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.06e-06 V                  ; 2.36 V             ; -0.00724 V         ; 0.107 V                             ; 0.02 V                              ; 4.5e-10 s                  ; 4.25e-10 s                 ; Yes                       ; Yes                       ;
+; rgb[0]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.06e-06 V                   ; 2.36 V              ; -0.00724 V          ; 0.107 V                              ; 0.02 V                               ; 4.5e-10 s                   ; 4.25e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.06e-06 V                  ; 2.36 V             ; -0.00724 V         ; 0.107 V                             ; 0.02 V                              ; 4.5e-10 s                  ; 4.25e-10 s                 ; Yes                       ; Yes                       ;
+; rgb[1]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.06e-06 V                   ; 2.36 V              ; -0.00724 V          ; 0.107 V                              ; 0.02 V                               ; 4.5e-10 s                   ; 4.25e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.06e-06 V                  ; 2.36 V             ; -0.00724 V         ; 0.107 V                             ; 0.02 V                              ; 4.5e-10 s                  ; 4.25e-10 s                 ; Yes                       ; Yes                       ;
+; rgb[2]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.06e-06 V                   ; 2.36 V              ; -0.00724 V          ; 0.107 V                              ; 0.02 V                               ; 4.5e-10 s                   ; 4.25e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.06e-06 V                  ; 2.36 V             ; -0.00724 V         ; 0.107 V                             ; 0.02 V                              ; 4.5e-10 s                  ; 4.25e-10 s                 ; Yes                       ; Yes                       ;
+; hsync         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.06e-06 V                   ; 2.36 V              ; -0.00724 V          ; 0.107 V                              ; 0.02 V                               ; 4.5e-10 s                   ; 4.25e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.06e-06 V                  ; 2.36 V             ; -0.00724 V         ; 0.107 V                             ; 0.02 V                              ; 4.5e-10 s                  ; 4.25e-10 s                 ; Yes                       ; Yes                       ;
+; vsync         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.06e-06 V                   ; 2.36 V              ; -0.00724 V          ; 0.107 V                              ; 0.02 V                               ; 4.5e-10 s                   ; 4.25e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.06e-06 V                  ; 2.36 V             ; -0.00724 V         ; 0.107 V                             ; 0.02 V                              ; 4.5e-10 s                  ; 4.25e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.74e-07 V                   ; 2.36 V              ; -0.0201 V           ; 0.072 V                              ; 0.033 V                              ; 4.04e-10 s                  ; 3.29e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 5.74e-07 V                  ; 2.36 V             ; -0.0201 V          ; 0.072 V                             ; 0.033 V                             ; 4.04e-10 s                 ; 3.29e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 9.45e-07 V                   ; 2.35 V              ; -0.00643 V          ; 0.081 V                              ; 0.031 V                              ; 5.31e-10 s                  ; 7.59e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 9.45e-07 V                  ; 2.35 V             ; -0.00643 V         ; 0.081 V                             ; 0.031 V                             ; 5.31e-10 s                 ; 7.59e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; ground        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; rgb[0]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; rgb[1]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; rgb[2]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; hsync         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; vsync         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 1528250  ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 1528250  ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 2     ; 2    ;
+; Unconstrained Output Ports      ; 4     ; 4    ;
+; Unconstrained Output Port Paths ; 120   ; 120  ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Fri Jan 27 00:31:59 2023
+Info: Command: quartus_sta final_project -c top
+Info: qsta_default_script.tcl version: #1
+Info (11104): Parallel Compilation has detected 12 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 6 of the 6 physical processors detected instead.
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'top.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -9.614
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -9.614          -16378.724 clk 
+Info (332146): Worst-case hold slack is 0.347
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.347               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000           -2290.000 clk 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -8.610
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -8.610          -14570.391 clk 
+Info (332146): Worst-case hold slack is 0.307
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.307               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000           -2290.000 clk 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -5.080
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -5.080           -8505.759 clk 
+Info (332146): Worst-case hold slack is 0.186
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.186               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000           -2422.390 clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4785 megabytes
+    Info: Processing ended: Fri Jan 27 00:32:02 2023
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:04
+
+

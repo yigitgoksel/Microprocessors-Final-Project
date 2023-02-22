@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at top.sv(25): object "VGA" differs only in case from object "vga" in the same scope
+Info (10281): Verilog HDL Declaration information at top.sv(24): object "KEYBOARD" differs only in case from object "keyboard" in the same scope
